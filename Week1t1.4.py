@@ -25,8 +25,8 @@ def get_address(url, data=None):
             }
             img = img.get('src')
             downloadurl.append(img)
-            # print(img)
-            download_pic(downloadurl)
+            print(data)
+            # download_pic(downloadurl)
 
 def download_pic(download_url):
 
@@ -41,5 +41,5 @@ def get_url(start, end):
         time.sleep(2)
 
 
-get_url(1,2)
+get_url(1,6)
 
