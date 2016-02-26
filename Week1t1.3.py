@@ -6,7 +6,7 @@ header={
                  'AppleWebKit/537.36 (KHTML, like Gecko)'
                  ' Chrome/48.0.2564.109 Safari/537.36'
 }
-url = 'http://bj.xiaozhu.com/fangzi/1381797635.html'
+url = 'https://knewone.com/discover?page=7'
 web_data = requests.get(url,headers=header)
 soup = BeautifulSoup(web_data.text,'lxml')
 titles = soup.select('body > div.wrap.clearfix.con_bg > div.con_l > div.pho_info > h4 > em')
