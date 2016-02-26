@@ -1,29 +1,21 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-url = 'http://bj.58.com/pingbandiannao/25125976792746x.shtml?psid=164631328190880057818855091&entinfo=25125976792746_0'
 
-header={
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) '
+url = 'http://bj.58.com/pingbandiannao/24892815679312x.shtml?psid=164631328190880057818855091&entinfo=24892815679312_0'
+
+header = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) '
                   'AppleWebKit/537.36 (KHTML, like Gecko)'
                   ' Chrome/48.0.2564.109 Safari/537.36'
 }
-def get_info(url):
-    wb_data = requests.get(url,headers=header)
-    soup = BeautifulSoup(wb_data.text,'lxml')
-    titles = soup.select('div.per_ad_left > div.col_sub.mainTitle > h1')
-    Themes = soup.select(' div.breadCrumb.f12 > span:nth-of-type(3) > a')
-    Prices = soup.select(' div.per_ad_left > div.col_sub.sumary > ul > li:nth-of-type(1) > div.su_con > span')
-    Goods = soup.select(' div.per_ad_left > div.col_sub.sumary > ul > li:nth-of-type(2) > div.su_con > span')
-    Areas = soup.select('div.per_ad_left > div.col_sub.sumary > ul > li:nth-of-type(3) > div.su_con > span  ')
-    dates = soup.select('#index_show > ul.mtit_con_left.fl > li.time')
-    for title,theme,price,good,area,date in zip(titles,Themes,Prices,Goods,Areas,dates):
-        data = {
-            '标题':title.get_text(),
-            '类目':theme.get_text(),
-            '价格':price.get_text(),
-            '成色':good.get_text().replace('\t','').replace('\n','').replace(' ',''),
-            '区域':area.get_text().replace('\t','').replace('\n',''),
-            '发帖日期':date.get_text(),
-        }
-        print(data)
+wb_data = requests.get(url, headers=header).text
+soup = BeautifulSoup(wb_data, 'lxml').text
+views_sid = re.findall('Counter58.sid="\d{2,}"', soup)  # 正则匹配查找网页中浏览量JS中的sid变量
+views_info = re.findall('Counter58.infoid=\d{2,}', soup)  # 同上，朝朝infoid变量
+sid = str(views_sid)[17:-3]  # 将查找到的sid变量中的无关数据剔除
+infoid = str(views_info)[19:-2]  # 同上
+s = 'http://jst1.58.com/counter?infoid=24925720978740&userid=&uname=&sid=509706005&lid=1&px=&cfpath=5,38484'
+url_view = 'http://jst1.58.com/counter?infoid=' + infoid + '&userid=&uname=&sid=' + sid + '&lid=1&px=&cfpath=5,38484'# 拼接浏览量的js网页
+url_view1 = requests.get(url_view, headers=header).text # get js网页
+print(url_view1[71:])
