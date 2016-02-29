@@ -8,8 +8,6 @@ from email.utils import parseaddr, formataddr
 import smtplib
 
 
-# 监控摩洛哥精油是否上架，一旦上架发给老姐的手机上
-
 def _format_addr(s):
     name, addr = parseaddr(s)
     return formataddr((Header(name, 'utf-8').encode(), addr))
@@ -18,7 +16,7 @@ def _format_addr(s):
 def send_message(Price):
     form_addr = 'psxhero@163.com'
     password = 'bwdbtxdaurpudjhs'
-    to_addr = '215403065@qq.com'
+    to_addr = '15161326167@139.com'
     smtp_server = 'smtp.163.com'
 
     msg = MIMEText('丰趣海淘·摩洛哥坚果护发精油已经上架！价格:' + str(Price) + '元', 'plain', 'utf-8')
@@ -59,15 +57,15 @@ header = {
               ' _jzqa=1.4354667487562971600.1455543702.1456498125.1456573705.6;'
               ' _jzqc=1; _jzqb=1.18.10.1456573705.0;'
               ' _fmdata=99B3EEF20C227339CCC2B93CA24A64E3CE5D86362CD69E984D8ADFD8C8E255226AA2F0AE247D6FB6CF2C6686FC7C5BDDDE12F0222C23A4A3'
-}  # 1456629347653 2016-02-28 11:16:27 ||
-datas = {
+}
+data = {  # 摩洛哥精油数据
     '_mt': 'b2cmall.getProductHotData',
     'itemId': '10780',
     '_sm': 'md5',
     '_aid': '1',
     '_sig': '5fc1d3ab173bb79b8dd05df36867bc70'
 }
-data1 = {
+data1 = {  # 摩洛哥Ligth精油数据
     '_mt': 'b2cmall.getProductHotData',
     'itemId': '10781',
     '_sm': 'md5',
@@ -76,19 +74,37 @@ data1 = {
 }
 
 
-def get_info(data):
+def get_info(data):  # 判断 True为缺货
     url = requests.post('http://www.fengqu.com/m.api', data=data, headers=header)
     text = url.text
     text = json.loads(text)
     text = text['content']
     Juage = text[0]['soldOut']
     Price = text[0]['sellingPrice'] / 100
-    if Juage == True:
-        print('OK!')
+    return Juage
 
+
+def get_Price(data):  # 得到商品价格
+    url = requests.post('http://www.fengqu.com/m.api', data=data, headers=header)
+    text = url.text
+    text = json.loads(text)
+    text = text['content']
+    Price = text[0]['sellingPrice'] / 100
+    return Price
+
+
+def should_send_email(email_sent, item_):  # 判断是否发送邮件
+    return (not item_) and (not email_sent)
+
+
+email_sent = False
 
 while True:
-    get_info(datas)
-    get_info(data1)
-    time.sleep(3)
+    if should_send_email(email_sent, get_info(data)):
+        send_message(get_Price(data))
+        email_sent = True
+    time.sleep(30)
+    if should_send_email(email_sent, get_info(data1)):
+        send_message(get_Price(data1))
+        email_sent = True
 
