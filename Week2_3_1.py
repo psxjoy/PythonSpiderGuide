@@ -31,6 +31,7 @@ def get_item_info(url):
     wb_data = requests.get(url)
     soup = BeautifulSoup(wb_data.text, 'lxml')
     no_longer_exist = '404' in soup.find('script', type='text/javascript').get('src').split('/')
+    no_longer_exist = soup.find_all('div','error')
     if no_longer_exist:
         pass
     else:
