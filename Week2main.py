@@ -5,7 +5,7 @@ from Week2_3_1 import get_links_from
 
 def get_all_links_from(channel):
     for num in range(1, 101):
-        get_links_from(channel, num)
+        print(num)
 
 
 # c创建进程池
