@@ -14,13 +14,13 @@ def _format_addr(s):
 
 
 def send_message(Price):
-    form_addr = 'psxhero@163.com'
-    password = 'bwdbtxdaurpudjhs'
-    to_addr = '15161326167@139.com'
-    smtp_server = 'smtp.163.com'
+    form_addr = '******'
+    password = '*******'
+    to_addr = '******'
+    smtp_server = '*******'
 
-    msg = MIMEText('丰趣海淘·摩洛哥坚果护发精油已经上架！价格:' + str(Price) + '元', 'plain', 'utf-8')
-    msg['From'] = _format_addr('弟弟的自动提醒<%s>' % form_addr)
+    msg = MIMEText('摩洛哥坚果护发精油已经上架！价格:' + str(Price) + '元', 'plain', 'utf-8')
+    msg['From'] = _format_addr('自动提醒<%s>' % form_addr)
     msg['To'] = _format_addr(' <%s>' % to_addr)
     msg['Subject'] = Header('摩洛哥精油上架提醒', 'utf-8').encode()
 
