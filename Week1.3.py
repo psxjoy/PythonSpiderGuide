@@ -11,4 +11,4 @@ url = 'http://jwby.hyit.edu.cn/xs_main.aspx?xh=1141314818'
 wb_date = requests.get(url,headers=headers)
 Soup = BeautifulSoup(wb_date.text,'lxml')
 titles = Soup.select('#headDiv')
-print(titles)
+print(Soup)

@@ -37,5 +37,5 @@ for title,address,money,picture,person_name,person_picture,person_sex \
         'person_sex':Juage(person_sex.get('class'))
     }
 
-print(data)
+    print(data)
 
