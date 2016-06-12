@@ -19,7 +19,7 @@ data = {
     'b_y':'2015',
     't_m':'2',
     's_n':'XXX',  # 这里输入你的学号
-    'p_d':'XXX',  # 这里输入你的密码
+    'p_d':'XXXX',  # 这里输入你的密码
     'c_k':'',
     'v_c':'',
     'identity':'E0C90E6559BB6E23212F197976DE9A1B'
@@ -30,10 +30,10 @@ def _format_addr(s):
 
 
 def send_message(meg):
-    form_addr = 'XXX@XXX.com' #这里输入你的邮箱地址
-    password = 'XXX' #这里输入你的邮箱密码
-    to_addr = 'XXX@139.com' #这里输入你的手机邮箱地址
-    smtp_server = 'smtp.XXX.com'  # 这里输入你邮箱的smtp地址
+    form_addr = 'XXX@XXX.com'  # 这里输入你的邮箱地址
+    password = 'XXXXX'  # 这里输入你的邮箱密码
+    to_addr = 'XXXX@XXX.com'  # 这里输入你的手机邮箱地址
+    smtp_server = 'smtp.XXXX.com'  # 这里输入你邮箱的smtp地址
 
     msg = MIMEText(meg)
     msg['From'] = _format_addr('成绩提醒<%s>' % form_addr)
@@ -50,12 +50,15 @@ check =['魅力科学']
 while True:
     wb_data = requests.post(url,headers=header,data=data)
     GetList = json.loads(wb_data.text)
-    LengthList = len(GetList['scoreList'])
-    for i in range(0,LengthList):
-        CheckList = GetList['scoreList'][i]['courseName']
-        if CheckList not  in check:
-            meg='"'+GetList['scoreList'][i]['courseName']+'"('+GetList['scoreList'][i]['courseProperty']+')已经公布成绩，您的总评为:'+GetList['scoreList'][i]['score']+'。该门课的学分为'+GetList['scoreList'][i]['credit']
-            # send_message(meg)
-            print(meg)
-            check.append(CheckList)
+    if GetList['errorCode']==0:
+        LengthList = len(GetList['scoreList'])
+        for i in range(0,LengthList):
+            CheckList = GetList['scoreList'][i]['courseName']
+            if CheckList not  in check:
+                meg=GetList['scoreList'][i]['courseName']+'"('+GetList['scoreList'][i]['courseProperty']+')已经公布成绩，您的总评为:'+GetList['scoreList'][i]['score']+'。该门课的学分为'+GetList['scoreList'][i]['credit']
+                send_message(meg)
+                print(meg)
+                check.append(CheckList)
+    else:
+        print('cuowula')
     time.sleep(180)
