@@ -35,7 +35,7 @@ def send_message(meg):
     to_addr = 'XXXX@XXX.com'  # 这里输入你的手机邮箱地址
     smtp_server = 'smtp.XXXX.com'  # 这里输入你邮箱的smtp地址
 
-    msg = MIMEText(meg)
+    msg = MIMEText(meg,'plain','utf-8')
     msg['From'] = _format_addr('成绩提醒<%s>' % form_addr)
     msg['To'] = _format_addr(' <%s>' % to_addr)
     msg['Subject'] = Header('期末成绩', 'utf-8').encode()
@@ -61,4 +61,5 @@ while True:
                 check.append(CheckList)
     else:
         print('cuowula')
+        break
     time.sleep(180)
