@@ -55,7 +55,7 @@ while True:
         for i in range(0,LengthList):
             CheckList = GetList['scoreList'][i]['courseName']
             if CheckList not  in check:
-                meg=GetList['scoreList'][i]['courseName']+'"('+GetList['scoreList'][i]['courseProperty']+')已经公布成绩，您的总评为:'+GetList['scoreList'][i]['score']+'。该门课的学分为'+GetList['scoreList'][i]['credit']
+                meg=GetList['scoreList'][i]['courseName']+GetList['scoreList'][i]['courseProperty']+GetList['scoreList'][i]['score']
                 send_message(meg)
                 print(meg)
                 check.append(CheckList)
