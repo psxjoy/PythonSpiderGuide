@@ -67,7 +67,7 @@ while True:
                 check.append(CheckList)
     else:
         meg1 = str(GetList['message'])
-        send_message(meg1)
+        print(meg1)
 
         break
     time.sleep(180)
