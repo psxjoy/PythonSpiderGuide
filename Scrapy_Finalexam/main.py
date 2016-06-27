@@ -8,12 +8,12 @@ import smtplib
 import time
 
 url = 'http://112.124.54.19/Score/score/importScoreFromSchool.action'
-header = {
+header = {  # header模拟浏览器浏览
     'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0.1; MI 4LTE Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/50.0.2661.86 Mobile Safari/537.36-SuperFriday_7.4.1',
     'Cookie': 'ACNZZDATA1252894711=89097748-1465629103-%7C1465629103',
     'Content-Type': 'application/x-www-form-urlencoded'
 }
-data = {
+data = {  # 传递验证信息
     'schoolIdentity': '7D6F7B500C3C8AE89C0ED9362898CD0F',
     's_Id': '0',
     'b_y': '2015',
@@ -26,12 +26,12 @@ data = {
 }
 
 
-def _format_addr(s):
+def _format_addr(s):  # 处理编码问题
     name, addr = parseaddr(s)
     return formataddr((Header(name, 'utf-8').encode(), addr))
 
 
-def send_message(meg):
+def send_message(meg):  # 邮件模块
     form_addr = 'xxx@xxxx.com'
     password = 'xxx'
     to_addr = 'xxxxx@139.com'
@@ -49,7 +49,7 @@ def send_message(meg):
     server.quit()
 
 
-check = ['魅力科学']
+check = ['test']  # 随便创建某一个数组
 while True:
     wb_data = requests.post(url, headers=header, data=data)
     GetList = json.loads(wb_data.text)
@@ -60,9 +60,9 @@ while True:
             if CheckList not in check:
                 Subject = str(GetList['scoreList'][i]['courseName'])
                 Theme = str(GetList['scoreList'][i]['courseProperty'])
-                Score = str(GetList['scoreList'][i]['score'])
+                Score = str(GetList['scoreList'][i]['score'])  # 处理变量类型
                 meg = '您的' + Subject + '(' + Theme + ')成绩已经公布，成绩为' + Score
-                send_message(meg)
+                send_message(meg)  # 调用邮件模块
                 # print(type(meg))
                 check.append(CheckList)
     else:
