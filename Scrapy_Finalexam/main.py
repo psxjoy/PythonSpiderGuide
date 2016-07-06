@@ -51,23 +51,19 @@ def send_message(meg):  # 邮件模块
 
 check = ['test']  # 随便创建某一个数组
 while True:
-    wb_data = requests.post(url, headers=header, data=data)
+    wb_data = requests.post(url,headers=header,data=data)
     GetList = json.loads(wb_data.text)
-    if GetList['errorCode'] == 0:
+    if GetList['errorCode']==0:
         LengthList = len(GetList['scoreList'])
-        for i in range(0, LengthList):
+        for i in range(0,LengthList):
             CheckList = GetList['scoreList'][i]['courseName']
-            if CheckList not in check:
+            if CheckList not  in check:
                 Subject = str(GetList['scoreList'][i]['courseName'])
                 Theme = str(GetList['scoreList'][i]['courseProperty'])
-                Score = str(GetList['scoreList'][i]['score'])  # 处理变量类型
-                meg = '您的' + Subject + '(' + Theme + ')成绩已经公布，成绩为' + Score
-                send_message(meg)  # 调用邮件模块
-                # print(type(meg))
+                Score = str(GetList['scoreList'][i]['score'])
+                meg = '您的' + Subject + '(' + Theme + ')成绩已经公布，成绩为' + Score                
+                send_message(meg)
                 check.append(CheckList)
     else:
-        meg1 = str(GetList['message'])
-        print(meg1)
-
-        break
-    time.sleep(180)
+        time.sleep(3600)
+    time.sleep(600)
