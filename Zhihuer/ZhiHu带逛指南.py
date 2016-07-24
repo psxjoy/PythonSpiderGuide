@@ -4,13 +4,13 @@ import re
 import urllib
 import time
 import random
-url = 'https://www.zhihu.com/collection/61633672?page='
+url = 'https://www.zhihu.com/collection/61633672?page='  # 收藏夹地址
 header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36',
     'Cookie': ''
     }
-floder_path = "D:/TEST/知乎妹子/"
-endnum = 41
+floder_path = "D:/TEST/知乎妹子/"  # 图片保存地址
+endnum = 41  # 收藏夹页数+1
 
 
 def download_pic(url, name):
