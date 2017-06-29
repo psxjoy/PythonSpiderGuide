@@ -34,7 +34,7 @@ Here the information about the files:
  That's All! It's very simple and easy!
 But if you want to receive the mobile phone's Message about the exam score,you also need the SMS services.But you just want use E-mail,forget it!
 ------
-#Quick Start
+## Quick Start
 
 you would like to adjust some params to make walle suited for your using.
 
@@ -59,17 +59,14 @@ After that
 JUST PYTHON IT!
  
 
-##My Blog
------
+## My Blog
 [LittleBlack](http://www.psxjoy.me)
 
 
 
 
-##Discussing
-
-
------
+Discussing
+----------
 - [submit issue](https://github.com/elegantking//PythonSpiderGuide/new)
 - email: psxhero@163.com
 
