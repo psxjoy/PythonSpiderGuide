@@ -63,7 +63,6 @@ After that
 ##[LittleBlack](http://www.psxjoy.me)
 
 
-##  
 
 
 ##Discussing
@@ -73,7 +72,7 @@ After that
 - [submit issue](https://github.com/elegantking//PythonSpiderGuide/new)
 - email: psxhero@163.com
 
-##勾搭下
+勾搭下
 ----
 <img src="http://oqt1kimnz.bkt.clouddn.com/IMG_0177.JPG" width="244" height="314" alt="微信" align=left />
 
