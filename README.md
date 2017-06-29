@@ -21,13 +21,13 @@ Here the information about the files:
   The little tool which can notify your Final Exam points(Support python2.x and python3.x)
 * Scrapy_LibraryInfo:
  
- Seriously, the code inside the folder is very messy! This is the first time i used Python to write gadgets. Get library books and classify them using the data on the JD website.
+  Seriously, the code inside the folder is very messy! This is the first time i used Python to write gadgets. Get library books and    classify them using the data on the JD website.
 * Zhihuer：
 
- You know,Zhihu is a popular website,it seems everyone should spider this web ,and after that, you can say you know some Python Sipder ways.
+  You know,Zhihu is a popular website,it seems everyone should spider this web ,and after that, you can say you know some Python Sipder ways.
  
 
-#Requirements
+## Requirements
 
 * Python2.x or Python 3.x
 * requests
