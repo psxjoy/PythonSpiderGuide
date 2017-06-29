@@ -74,8 +74,9 @@ Discussing
 
 勾搭下
 ----
-<img src="http://oqt1kimnz.bkt.clouddn.com/IMG_0177.JPG" width="244" height="314" alt="微信" align=left />
+啊哦，我有女友啦！所以就不放其他联系方式啦！
 
+如果您想联系我，可以通过电子邮件联系我。我会及时回复的~
 
 
 
