@@ -1,6 +1,6 @@
 # PythonSpiderGuide
 
-##The way to be a Better Coder (Python)
+The way to be a Better Coder (Python)
 
 ------
 
@@ -16,24 +16,24 @@ However,I still cannot promise that the code included in this project are correc
 
 Here the information about the files:
 
-* ###Scrapy_Finalexam:
+* Scrapy_Finalexam:
 
   The little tool which can notify your Final Exam points(Support python2.x and python3.x)
-* ###Scrapy_LibraryInfo:
+* Scrapy_LibraryInfo:
  
  Seriously, the code inside the folder is very messy! This is the first time i used Python to write gadgets. Get library books and classify them using the data on the JD website.
-* ###Zhihuer：
+* Zhihuer：
 
  You know,Zhihu is a popular website,it seems everyone should spider this web ,and after that, you can say you know some Python Sipder ways.
 ------
-##Requirements
+Requirements
 
-* ###Python2.x or Python 3.x
-* ###requests
- ###That's All! It's very simple and easy!
+* Python2.x or Python 3.x
+* requests
+ That's All! It's very simple and easy!
 But if you want to receive the mobile phone's Message about the exam score,you also need the SMS services.But you just want use E-mail,forget it!
 ------
-##Quick Start
+#Quick Start
 
 you would like to adjust some params to make walle suited for your using.
 
@@ -55,12 +55,12 @@ you would like to adjust some params to make walle suited for your using.
     smtp_server = 'smtp Address'
 ```
 After that 
-###JUST PYTHON IT!
-## 
+JUST PYTHON IT!
+ 
 
 ##My Blog
 -----
-##[LittleBlack](http://www.psxjoy.me)
+[LittleBlack](http://www.psxjoy.me)
 
 
 
