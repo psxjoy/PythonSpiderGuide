@@ -38,7 +38,7 @@ Here the information about the files:
 
 ## Quick Start
 
-you would like to adjust some params to make walle suited for your using.
+you would like to adjust some params to make tools suited for your using.
 
 * set E-mail Address And Your peronaly information
 
