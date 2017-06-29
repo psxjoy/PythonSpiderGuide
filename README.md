@@ -62,7 +62,7 @@ JUST PYTHON IT!
  
 
 ## My Blog
-[LittleBlack](http://www.psxjoy.me)
+[LittleBlack](http://psxjoy.me/)
 
 
 
