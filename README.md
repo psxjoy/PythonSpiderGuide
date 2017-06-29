@@ -31,6 +31,7 @@ Here the information about the files:
 
 * Python2.x or Python 3.x
 * requests
+
  That's All! It's very simple and easy!
 
  But if you want to receive the mobile phone's Message about the exam score,you also need the SMS services.But you just want use E-mail,forget it!
