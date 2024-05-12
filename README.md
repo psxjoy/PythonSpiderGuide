@@ -62,7 +62,7 @@ JUST PYTHON IT!
  
 
 ## My Blog
-[LittleBlack](http://psxjoy.me/)
+[LittleBlack](http://psxjoy.com/)
 
 
 
@@ -70,13 +70,8 @@ JUST PYTHON IT!
 Discussing
 ----------
 - [submit issue](https://github.com/elegantking//PythonSpiderGuide/new)
-- email: psxhero@163.com
+- email: psxjoy@outlook.com
 
-勾搭下
-----
-啊哦，我有女友啦！所以就不放其他联系方式啦！
-
-如果您想联系我，可以通过电子邮件联系我。我会及时回复的~
 
 
 
